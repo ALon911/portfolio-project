@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Alon Najman - Protfolio</title>
+    <title>Alon Najman - Blog</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
@@ -41,7 +41,7 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Alon Najman</a>
+      <a class="navbar-brand" href="{% url 'home' %}">Alon Najman</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -51,7 +51,7 @@
 
           <a class="nav-item nav-link" href="https://www.facebook.com/alon.najman.9">Facebook</a>
           <a class="nav-item nav-link" href="{% static 'resume.pdf' %}">Resume</a>
-          <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+          <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
 
         </ul>
 
@@ -60,42 +60,23 @@
 </header>
 
 <main role="main">
+  <div class="container">
+<h1 class="text-center pt-3" =5px>Welcome to Alon's Blog</h1>
+<br />
+<br />
+<h2>Latest Posts </h2>
+<hr/>
+{% for blog in blogs.all %}
+<a href="{% url 'detail' blog.id %}"><h3>{{ blog.title}}</h3></a>
 
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">Hi, I'm Alon Najman.</h1>
-      <p class="lead text-muted">I love to develop websites using Django and Python</p>
-      <p>
-        <a href="mailto:Alon.Najman@gmail.com" class="btn btn-primary my-2">Email Me</a>
+{{ blog.pub_date }}
+<br />
+<img class="img-fluid" src="{{ blog.image.url}}" height=200 width=200/>
+<br />
+<p> {{ blog.body }}</p>
+{% endfor %}
 
-      </p>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{job.image.url}}" />
-            <div class="card-body">
-              <p class="card-text">{{job.summary}}</p>
-
-            </div>
-          </div>
-        </div>
-
-        {% endfor %}
-
-
-              </div>
-            </div>
-          </div>
-
-
+</div>
 </main>
 
 <footer class="text-muted">
