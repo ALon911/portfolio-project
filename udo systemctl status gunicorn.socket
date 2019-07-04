@@ -1,0 +1,12 @@
+Failed to dump process list, ignoring: No such file or directory
+[0;1;32m●[0m gunicorn.socket - gunicorn socket
+   Loaded: loaded (/etc/systemd/system/gunicorn.socket; enabled; vendor preset: enabled)
+   Active: [0;1;32mactive (listening)[0m since Tue 2019-07-02 17:06:43 UTC; 4min 44s ago
+   Listen: /run/gunicorn.sock (Stream)
+   CGroup: /system.slice/gunicorn.socket
+
+Jul 02 17:06:43 django2-protfolio systemd[1]: Listening on gunicorn socket.
+Jul 02 17:06:57 django2-protfolio systemd[1]: [0;1;31m[0;1;39m[0;1;31m/etc/systemd/system/gunicorn.socket:5: Failed to parse address value, ignoring: gunicorn.sock[0m
+Jul 02 17:06:57 django2-protfolio systemd[1]: [0;1;31m[0;1;39m[0;1;31mgunicorn.socket: Unit has no Listen setting (ListenStream=, ListenDatagram=, ListenFIFO=, ...). Refusing.[0m
+Jul 02 17:07:45 django2-protfolio systemd[1]: [0;1;31m[0;1;39m[0;1;31m/etc/systemd/system/gunicorn.socket:5: Failed to parse address value, ignoring: gunicorn.sock[0m
+Jul 02 17:07:45 django2-protfolio systemd[1]: [0;1;31m[0;1;39m[0;1;31mgunicorn.socket: Unit has no Listen setting (ListenStream=, ListenDatagram=, ListenFIFO=, ...). Refusing.[0m
